@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MySpends - Privacy Policy & Open Source Licenses</title>
-    <meta name="description" content="Official Privacy Policy and Open Source Licenses for MySpends - A 100% offline, privacy-first personal finance and automated expense tracking Android application.">
+    <meta name="description"
+        content="Official Privacy Policy and Open Source Licenses for MySpends - A 100% offline, privacy-first personal finance and automated expense tracking Android application.">
     <link rel="icon" type="image/png" href="assets/app_icon.png">
     <link rel="apple-touch-icon" href="assets/app_icon.png">
     <style>
@@ -140,8 +142,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(4px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Typography & Components */
@@ -188,13 +197,15 @@
             margin-bottom: 8px;
         }
 
-        p, li {
+        p,
+        li {
             color: #CBD5E1;
             font-size: 0.96rem;
             margin-bottom: 12px;
         }
 
-        ul, ol {
+        ul,
+        ol {
             padding-left: 24px;
             margin-bottom: 16px;
         }
@@ -310,23 +321,27 @@
                 padding: 24px 18px;
                 border-radius: 16px;
             }
+
             .brand-header {
                 flex-direction: column;
                 align-items: flex-start;
             }
+
             .nav-tabs {
                 flex-direction: column;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <!-- Brand Header -->
         <header class="brand-header">
             <div class="brand-title-area">
                 <div class="brand-icon">
-                    <img src="assets/app_icon.png" alt="MySpends Logo" style="width: 100%; height: 100%; border-radius: 12px; object-fit: cover;">
+                    <img src="assets/app_icon.png" alt="MySpends Logo"
+                        style="width: 100%; height: 100%; border-radius: 12px; object-fit: cover;">
                 </div>
                 <div>
                     <div class="brand-title">MySpends</div>
@@ -356,79 +371,116 @@
             <div class="meta">
                 <div class="meta-item"><strong>Package:</strong> <code>com.orbit.myspends</code></div>
                 <div class="meta-item"><strong>Effective Date:</strong> October 1, 2026</div>
-                <div class="meta-item"><strong>Version:</strong> 1.0.9+</div>
+                <!-- <div class="meta-item"><strong>Version:</strong> 1.0.9+</div> -->
             </div>
 
-            <p>MySpends ("we", "our", or "us") is dedicated to uncompromising personal privacy. This Privacy Policy outlines our strict data handling practices, permissions usage, and adherence to Google Play developer policies for the <strong>MySpends</strong> mobile application.</p>
+            <p>MySpends ("we", "our", or "us") is dedicated to uncompromising personal privacy. This Privacy Policy
+                outlines our strict data handling practices, permissions usage, and adherence to Google Play developer
+                policies for the <strong>MySpends</strong> mobile application.</p>
 
             <div class="info-box">
-                <p><strong>Core Guarantee:</strong> MySpends is designed as a <strong>100% offline, on-device financial management tool</strong>. Your bank transaction records, SMS messages, account details, categories, and financial statistics <strong>never leave your device</strong> under any circumstances. We do not operate remote servers for financial storage, and we never collect, track, or sell your personal data.</p>
+                <p><strong>Core Guarantee:</strong> MySpends is designed as a <strong>100% offline, on-device financial
+                        management tool</strong>. Your bank transaction records, SMS messages, account details,
+                    categories, and financial statistics <strong>never leave your device</strong> under any
+                    circumstances. We do not operate remote servers for financial storage, and we never collect, track,
+                    or sell your personal data.</p>
             </div>
 
             <h2>1. Architecture & Privacy Principles</h2>
             <ul>
-                <li><strong>Local Storage Only:</strong> All personal financial information, expenses, and parsed messages are stored in an encrypted, sandboxed SQLite Room database on your physical device.</li>
-                <li><strong>Zero Cloud Databases:</strong> We have zero external servers receiving or storing your transaction history, account balances, or personal profiles.</li>
-                <li><strong>No User Account or Registration:</strong> You do not need to sign up, provide phone numbers, submit email addresses, or log into any server to use MySpends.</li>
-                <li><strong>Zero Third-Party Trackers & Ads:</strong> The app does not bundle advertising SDKs (e.g., Google AdMob), tracking frameworks, or third-party behavioral analytics.</li>
+                <li><strong>Local Storage Only:</strong> All personal financial information, expenses, and parsed
+                    messages are stored in an encrypted, sandboxed SQLite Room database on your physical device.</li>
+                <li><strong>Zero Cloud Databases:</strong> We have zero external servers receiving or storing your
+                    transaction history, account balances, or personal profiles.</li>
+                <li><strong>No User Account or Registration:</strong> You do not need to sign up, provide phone numbers,
+                    submit email addresses, or log into any server to use MySpends.</li>
+                <li><strong>Zero Third-Party Trackers & Ads:</strong> The app does not bundle advertising SDKs (e.g.,
+                    Google AdMob), tracking frameworks, or third-party behavioral analytics.</li>
             </ul>
 
             <h2>2. Permissions Requested & Data Usage</h2>
 
             <h3>A. SMS Permissions (READ_SMS & RECEIVE_SMS)</h3>
-            <p><strong>Strict Purpose:</strong> Automatically parsing incoming and historical bank transaction alerts to record debits, credits, account balances, and UPI payment references without tedious manual data entry.</p>
+            <p><strong>Strict Purpose:</strong> Automatically parsing incoming and historical bank transaction alerts to
+                record debits, credits, account balances, and UPI payment references without tedious manual data entry.
+            </p>
             <ul>
-                <li><strong>Financial-Only Scope:</strong> Our parsing engine parses messages solely from recognized financial institutions (e.g., HDFC, ICICI, SBI, Axis, Kotak, Union Bank, and UPI services).</li>
-                <li><strong>Non-Financial Messages Ignored:</strong> Personal chats, two-factor OTPs, verification codes, and unrelated SMS notifications are strictly ignored and never recorded.</li>
-                <li><strong>100% On-Device Processing:</strong> SMS reading and regex categorization occur completely within the app's local sandbox. SMS content is never transmitted across the network.</li>
+                <li><strong>Financial-Only Scope:</strong> Our parsing engine parses messages solely from recognized
+                    financial institutions (e.g., HDFC, ICICI, SBI, Axis, Kotak, Union Bank, and UPI services).</li>
+                <li><strong>Non-Financial Messages Ignored:</strong> Personal chats, two-factor OTPs, verification
+                    codes, and unrelated SMS notifications are strictly ignored and never recorded.</li>
+                <li><strong>100% On-Device Processing:</strong> SMS reading and regex categorization occur completely
+                    within the app's local sandbox. SMS content is never transmitted across the network.</li>
             </ul>
 
             <h3>B. Biometric Authentication (USE_BIOMETRIC)</h3>
-            <p><strong>Purpose:</strong> Optional App Lock feature (Fingerprint / Face Unlock) to secure your expense data when launching or resuming the application.</p>
+            <p><strong>Purpose:</strong> Optional App Lock feature (Fingerprint / Face Unlock) to secure your expense
+                data when launching or resuming the application.</p>
             <ul>
-                <li>Authentication is handled strictly by the native Android OS <code>BiometricPrompt</code> hardware interface.</li>
-                <li>MySpends receives only a cryptographic success/failure callback. The app never accesses, stores, or processes raw biometric samples or templates.</li>
+                <li>Authentication is handled strictly by the native Android OS <code>BiometricPrompt</code> hardware
+                    interface.</li>
+                <li>MySpends receives only a cryptographic success/failure callback. The app never accesses, stores, or
+                    processes raw biometric samples or templates.</li>
             </ul>
 
             <h3>C. Push Notifications (POST_NOTIFICATIONS)</h3>
-            <p><strong>Purpose:</strong> Delivering local spending alerts, monthly budget limits warnings, and daily financial wisdom reminders.</p>
+            <p><strong>Purpose:</strong> Delivering local spending alerts, monthly budget limits warnings, and daily
+                financial wisdom reminders.</p>
             <ul>
-                <li>All notifications are scheduled and dispatched <strong>locally on your device</strong> using Android's WorkManager framework.</li>
-                <li>No remote push notification servers (e.g., FCM tracking servers) are utilized to track your device.</li>
+                <li>All notifications are scheduled and dispatched <strong>locally on your device</strong> using
+                    Android's WorkManager framework.</li>
+                <li>No remote push notification servers (e.g., FCM tracking servers) are utilized to track your device.
+                </li>
             </ul>
 
             <h3>D. Internet Access (INTERNET & ACCESS_NETWORK_STATE)</h3>
-            <p><strong>Transparency Disclosure:</strong> MySpends requests network access strictly for two lightweight client-side features:</p>
+            <p><strong>Transparency Disclosure:</strong> MySpends requests network access strictly for two lightweight
+                client-side features:</p>
             <ol>
-                <li><strong>Foreign Currency Exchange Rates:</strong> Querying public, non-authenticated exchange rates so you can view international expenses converted to local currency.</li>
-                <li><strong>Dynamic Bank Icons:</strong> Loading public brand logos and category icons from public CDNs.</li>
+                <li><strong>Foreign Currency Exchange Rates:</strong> Querying public, non-authenticated exchange rates
+                    so you can view international expenses converted to local currency.</li>
+                <li><strong>Dynamic Bank Icons:</strong> Loading public brand logos and category icons from public CDNs.
+                </li>
             </ol>
-            <p><strong>Zero Data Transmission:</strong> At no point is your financial data, parsed SMS text, account balance, user identity, or device telemetry transmitted over the network.</p>
+            <p><strong>Zero Data Transmission:</strong> At no point is your financial data, parsed SMS text, account
+                balance, user identity, or device telemetry transmitted over the network.</p>
 
             <h3>E. Approximate Location (ACCESS_COARSE_LOCATION - Optional)</h3>
-            <p><strong>Purpose:</strong> Optionally tagging the geographical location where a manual transaction was logged to populate the interactive spending heatmap. Location data remains entirely on-device and is never shared.</p>
+            <p><strong>Purpose:</strong> Optionally tagging the geographical location where a manual transaction was
+                logged to populate the interactive spending heatmap. Location data remains entirely on-device and is
+                never shared.</p>
 
             <h2>3. Data Retention, Export & Deletion Rights</h2>
             <ul>
-                <li><strong>User Data Ownership:</strong> You retain complete ownership of all data entered or parsed by MySpends.</li>
-                <li><strong>Data Export:</strong> You can export your full transaction log to a standard <code>.csv</code> spreadsheet anytime directly from the Analytics screen.</li>
-                <li><strong>Right to Complete Erasure:</strong> You can delete any transaction individually, clear bank-specific data from Settings, or permanently erase all stored records by uninstalling the application or clearing App Data via Android Settings.</li>
+                <li><strong>User Data Ownership:</strong> You retain complete ownership of all data entered or parsed by
+                    MySpends.</li>
+                <li><strong>Data Export:</strong> You can export your full transaction log to a standard
+                    <code>.csv</code> spreadsheet anytime directly from the Analytics screen.</li>
+                <li><strong>Right to Complete Erasure:</strong> You can delete any transaction individually, clear
+                    bank-specific data from Settings, or permanently erase all stored records by uninstalling the
+                    application or clearing App Data via Android Settings.</li>
             </ul>
 
             <h2>4. Children's Privacy</h2>
-            <p>MySpends is a personal finance tool directed to individuals aged 18 and older. We do not knowingly collect or solicit any information from children under 18 years of age.</p>
+            <p>MySpends is a personal finance tool directed to individuals aged 18 and older. We do not knowingly
+                collect or solicit any information from children under 18 years of age.</p>
 
             <h2>5. Google Play Policy Compliance</h2>
-            <p>MySpends complies fully with the Google Play Developer Distribution Agreement, Google Play User Data Policy, and Specific SMS & Call Log Permissions Policies by ensuring that SMS permissions are utilized strictly for the core financial expense tracking functionality and handled 100% on-device.</p>
+            <p>MySpends complies fully with the Google Play Developer Distribution Agreement, Google Play User Data
+                Policy, and Specific SMS & Call Log Permissions Policies by ensuring that SMS permissions are utilized
+                strictly for the core financial expense tracking functionality and handled 100% on-device.</p>
 
             <h2>6. Policy Updates</h2>
-            <p>We may periodically update this policy to reflect new capabilities. Any revisions will be published here with an updated "Effective Date".</p>
+            <p>We may periodically update this policy to reflect new capabilities. Any revisions will be published here
+                with an updated "Effective Date".</p>
 
             <h2>7. Contact Information</h2>
             <p>If you have any questions, feedback, or privacy concerns, please contact the developer team directly:</p>
             <ul>
-                <li><strong>Support Email:</strong> <a href="mailto:teamorbit2000@gmail.com">teamorbit2000@gmail.com</a></li>
-                <li><strong>GitHub Repository:</strong> <a href="https://github.com/Lakshmi247-ai/MySpends" target="_blank" rel="noopener noreferrer">https://github.com/Lakshmi247-ai/MySpends</a></li>
+                <li><strong>Support Email:</strong> <a href="mailto:teamorbit2000@gmail.com">teamorbit2000@gmail.com</a>
+                </li>
+                <li><strong>GitHub Repository:</strong> <a href="https://github.com/Lakshmi247-ai/MySpends"
+                        target="_blank" rel="noopener noreferrer">https://github.com/Lakshmi247-ai/MySpends</a></li>
             </ul>
         </section>
 
@@ -441,7 +493,8 @@
                 <div class="meta-item"><strong>License:</strong> Apache License 2.0</div>
             </div>
 
-            <p>MySpends is proudly developed using top-tier, robust open-source libraries and frameworks from the global developer community. We gratefully acknowledge the following projects and their authors:</p>
+            <p>MySpends is proudly developed using top-tier, robust open-source libraries and frameworks from the global
+                developer community. We gratefully acknowledge the following projects and their authors:</p>
 
             <!-- 1. AndroidX -->
             <div class="license-card">
@@ -449,8 +502,10 @@
                     <span class="license-card-title">1. AndroidX Libraries & Jetpack Components</span>
                     <span class="license-badge">Apache License 2.0</span>
                 </div>
-                <div class="license-card-desc">Core modern Android architecture components: AppCompat, ConstraintLayout, RecyclerView, CardView, Fragment, Lifecycle (ViewModel & LiveData), and WorkManager.</div>
-                <a class="license-card-link" href="https://github.com/androidx/androidx" target="_blank" rel="noopener noreferrer">https://github.com/androidx/androidx</a>
+                <div class="license-card-desc">Core modern Android architecture components: AppCompat, ConstraintLayout,
+                    RecyclerView, CardView, Fragment, Lifecycle (ViewModel & LiveData), and WorkManager.</div>
+                <a class="license-card-link" href="https://github.com/androidx/androidx" target="_blank"
+                    rel="noopener noreferrer">https://github.com/androidx/androidx</a>
             </div>
 
             <!-- 2. Google Material -->
@@ -459,8 +514,11 @@
                     <span class="license-card-title">2. Google Material Components for Android</span>
                     <span class="license-badge">Apache License 2.0</span>
                 </div>
-                <div class="license-card-desc">Material 3 UI components, elevation management, bottom sheets, sliders, and progress indicators.</div>
-                <a class="license-card-link" href="https://github.com/material-components/material-components-android" target="_blank" rel="noopener noreferrer">https://github.com/material-components/material-components-android</a>
+                <div class="license-card-desc">Material 3 UI components, elevation management, bottom sheets, sliders,
+                    and progress indicators.</div>
+                <a class="license-card-link" href="https://github.com/material-components/material-components-android"
+                    target="_blank"
+                    rel="noopener noreferrer">https://github.com/material-components/material-components-android</a>
             </div>
 
             <!-- 3. Google Dagger Hilt -->
@@ -470,7 +528,8 @@
                     <span class="license-badge">Apache License 2.0</span>
                 </div>
                 <div class="license-card-desc">Compile-time dependency injection library for Android applications.</div>
-                <a class="license-card-link" href="https://github.com/google/dagger" target="_blank" rel="noopener noreferrer">https://github.com/google/dagger</a>
+                <a class="license-card-link" href="https://github.com/google/dagger" target="_blank"
+                    rel="noopener noreferrer">https://github.com/google/dagger</a>
             </div>
 
             <!-- 4. Room Database -->
@@ -479,8 +538,11 @@
                     <span class="license-card-title">4. Android Jetpack Room Persistence Library</span>
                     <span class="license-badge">Apache License 2.0</span>
                 </div>
-                <div class="license-card-desc">Robust abstraction layer over SQLite for local, secure database storage.</div>
-                <a class="license-card-link" href="https://developer.android.com/training/data-storage/room" target="_blank" rel="noopener noreferrer">https://developer.android.com/training/data-storage/room</a>
+                <div class="license-card-desc">Robust abstraction layer over SQLite for local, secure database storage.
+                </div>
+                <a class="license-card-link" href="https://developer.android.com/training/data-storage/room"
+                    target="_blank"
+                    rel="noopener noreferrer">https://developer.android.com/training/data-storage/room</a>
             </div>
 
             <!-- 5. Bumptech Glide -->
@@ -489,8 +551,10 @@
                     <span class="license-card-title">5. Bumptech Glide</span>
                     <span class="license-badge">BSD 2-Clause / MIT / Apache 2.0</span>
                 </div>
-                <div class="license-card-desc">Fast and efficient media management and image loading framework for bank icons and merchant logos.</div>
-                <a class="license-card-link" href="https://github.com/bumptech/glide" target="_blank" rel="noopener noreferrer">https://github.com/bumptech/glide</a>
+                <div class="license-card-desc">Fast and efficient media management and image loading framework for bank
+                    icons and merchant logos.</div>
+                <a class="license-card-link" href="https://github.com/bumptech/glide" target="_blank"
+                    rel="noopener noreferrer">https://github.com/bumptech/glide</a>
             </div>
 
             <!-- 6. Play Services Location -->
@@ -499,8 +563,10 @@
                     <span class="license-card-title">6. Google Play Services Location</span>
                     <span class="license-badge">Google APIs Terms of Service</span>
                 </div>
-                <div class="license-card-desc">Fused Location Provider client for efficient, battery-friendly transaction location tagging.</div>
-                <a class="license-card-link" href="https://developers.google.com/android/guides/overview" target="_blank" rel="noopener noreferrer">https://developers.google.com/android/guides/overview</a>
+                <div class="license-card-desc">Fused Location Provider client for efficient, battery-friendly
+                    transaction location tagging.</div>
+                <a class="license-card-link" href="https://developers.google.com/android/guides/overview"
+                    target="_blank" rel="noopener noreferrer">https://developers.google.com/android/guides/overview</a>
             </div>
 
             <!-- 7. Fastlane Screengrab -->
@@ -509,8 +575,10 @@
                     <span class="license-card-title">7. Fastlane Screengrab</span>
                     <span class="license-badge">MIT License</span>
                 </div>
-                <div class="license-card-desc">Automated localized screenshot capture tools for Android Play Store deployment.</div>
-                <a class="license-card-link" href="https://github.com/fastlane/fastlane" target="_blank" rel="noopener noreferrer">https://github.com/fastlane/fastlane</a>
+                <div class="license-card-desc">Automated localized screenshot capture tools for Android Play Store
+                    deployment.</div>
+                <a class="license-card-link" href="https://github.com/fastlane/fastlane" target="_blank"
+                    rel="noopener noreferrer">https://github.com/fastlane/fastlane</a>
             </div>
 
             <!-- 8. JUnit 4 & Espresso -->
@@ -520,7 +588,8 @@
                     <span class="license-badge">Eclipse Public License 1.0 / Apache 2.0</span>
                 </div>
                 <div class="license-card-desc">Unit testing and automated UI instrumentation testing frameworks.</div>
-                <a class="license-card-link" href="https://github.com/junit-team/junit4" target="_blank" rel="noopener noreferrer">https://github.com/junit-team/junit4</a>
+                <a class="license-card-link" href="https://github.com/junit-team/junit4" target="_blank"
+                    rel="noopener noreferrer">https://github.com/junit-team/junit4</a>
             </div>
 
             <h2>Application License: Apache License 2.0</h2>
@@ -528,9 +597,13 @@
                 <p><strong>MySpends Source Code License:</strong></p>
                 <p style="font-family: monospace; font-size: 0.88rem; margin-top: 8px;">
                     Copyright 2026 MySpends Team<br><br>
-                    Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at:<br><br>
-                    <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer">https://www.apache.org/licenses/LICENSE-2.0</a><br><br>
-                    Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+                    Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in
+                    compliance with the License. You may obtain a copy of the License at:<br><br>
+                    <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank"
+                        rel="noopener noreferrer">https://www.apache.org/licenses/LICENSE-2.0</a><br><br>
+                    Unless required by applicable law or agreed to in writing, software distributed under the License is
+                    distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+                    implied.
                 </p>
             </div>
         </section>
@@ -538,7 +611,8 @@
         <!-- Footer -->
         <footer class="footer">
             <p>&copy; 2026 MySpends Team. All rights reserved.</p>
-            <p style="margin-top: 6px; font-size: 0.8rem; color: #64748B;">Committed to 100% offline financial privacy, transparency, and open software standards.</p>
+            <p style="margin-top: 6px; font-size: 0.8rem; color: #64748B;">Committed to 100% offline financial privacy,
+                transparency, and open software standards.</p>
         </footer>
     </div>
 
@@ -575,4 +649,5 @@
         });
     </script>
 </body>
+
 </html>
