@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySpends - Interactive User Guide & Story</title>
+    <meta name="description"
+        content="Discover how MySpends untangles 4 bank accounts, countless UPI apps, and puts you in complete control of your finances without any manual typing or privacy leaks.">
+    <link rel="icon" type="image/png" href="assets/app_icon.png">
+    <link rel="apple-touch-icon" href="assets/app_icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981;
+            --primary-dark: #059669;
+            --primary-light: rgba(16, 185, 129, 0.12);
+            --primary-glow: rgba(16, 185, 129, 0.25);
+            --accent-blue: #38BDF8;
+            --accent-purple: #A855F7;
+            --accent-amber: #F59E0B;
+            --accent-red: #F43F5E;
+
+            --bg: #090D16;
+            --card-bg: #111827;
+            --card-bg-elevated: #1F2937;
+            --card-border: #1E293B;
+            --border-hover: #334155;
+
+            --text-main: #F8FAFC;
+            --text-sub: #94A3B8;
+            --text-muted: #64748B;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            padding: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Top Navigation Header */
+        .header-bar {
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 14px 24px;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px var(--primary-glow);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            background: #090D16;
+            flex-shrink: 0;
+        }
+
+        .brand-logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-app-branding {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 22px;
+            position: relative;
+        }
+
+        .hero-icon-container {
+            position: relative;
+            width: 92px;
+            height: 92px;
+            border-radius: 24px;
+            padding: 3px;
+            background: linear-gradient(135deg, #10B981, #38BDF8);
+            box-shadow: 0 12px 32px rgba(16, 185, 129, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .hero-icon-container:hover {
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 16px 40px rgba(16, 185, 129, 0.55);
+        }
+
+        .hero-icon-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 21px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-icon-badge {
+            position: absolute;
+            bottom: -6px;
+            right: -6px;
+            background: #090D16;
+            color: var(--primary);
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 999px;
+            border: 1.5px solid var(--primary);
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .brand-name {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-tag {
+            font-size: 0.75rem;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 3px 8px;
+            border-radius: 999px;
+            font-weight: 600;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-link {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-github {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--card-bg-elevated);
+            color: var(--text-main);
+            border: 1px solid var(--card-border);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-github:hover {
+            border-color: var(--primary);
+            background: #283548;
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 20px 80px;
+        }
+
+        /* Hero Banner */
+        .hero {
+            text-align: center;
+            padding: 48px 16px 40px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 480px;
+            height: 280px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, rgba(9, 13, 22, 0) 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, #10B981, #38BDF8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-sub);
+            max-width: 760px;
+            margin: 0 auto 32px;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* Interactive Mode Switcher */
+        .mode-toggle-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 48px;
+            position: relative;
+        }
+
+        .mode-toggle {
+            display: inline-flex;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 6px;
+            gap: 6px;
+        }
+
+        .mode-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-sub);
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mode-btn:hover {
+            color: var(--text-main);
+        }
+
+        .mode-btn.active {
+            background: var(--primary);
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px var(--primary-glow);
+        }
+
+        /* Story Section (Rohan's Journey) */
+        .story-container {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 36px;
+            margin-bottom: 48px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .story-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #38BDF8, #818CF8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .story-meta h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .story-meta p {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        /* 4 Banks Grid */
+        .banks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .bank-card {
+            background: var(--card-bg-elevated);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 18px;
+            position: relative;
+            transition: transform 0.2s, border-color 0.2s;
+            cursor: pointer;
+        }
+
+        .bank-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+        }
+
+        .bank-card.active {
+            border-color: var(--primary);
+            background: rgba(16, 185, 129, 0.08);
+        }
+
+        .bank-icon-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .bank-symbol {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        .bank-symbol.hdfc {
+            color: #38BDF8;
+            background: rgba(56, 189, 248, 0.12);
+        }
+
+        .bank-symbol.icici {
+            color: #FB923C;
+            background: rgba(251, 146, 60, 0.12);
+        }
+
+        .bank-symbol.sbi {
+            color: #818CF8;
+            background: rgba(129, 140, 248, 0.12);
+        }
+
+        .bank-symbol.kotak {
+            color: #F43F5E;
+            background: rgba(244, 63, 94, 0.12);
+        }
+
+        .bank-status {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+
+        .bank-name {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .bank-role {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        /* Comparison Before / After */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .comp-card {
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+        }
+
+        .comp-card.before {
+            background: rgba(244, 63, 94, 0.05);
+            border: 1px solid rgba(244, 63, 94, 0.25);
+        }
+
+        .comp-card.after {
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .comp-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .comp-card.before .comp-title {
+            color: var(--accent-red);
+        }
+
+        .comp-card.after .comp-title {
+            color: var(--primary);
+        }
+
+        .comp-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: var(--text-sub);
+        }
+
+        .comp-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .comp-list li span.icon {
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* INTERACTIVE SIMULATOR (Cockpit Demo) */
+        .demo-section {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 48px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+        }
+
+        .demo-title-area {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 36px;
+        }
+
+        .demo-title-area h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+
+        .demo-title-area p {
+            color: var(--text-sub);
+            font-size: 1rem;
+        }
+
+        .simulator-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 36px;
+            align-items: start;
+        }
+
+        @media (max-width: 992px) {
+            .simulator-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Left Controls (Simulate Actions) */
+        .controls-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .control-group-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .preset-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .preset-btn {
+            background: var(--card-bg-elevated);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 14px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+            color: var(--text-main);
+        }
+
+        .preset-btn:hover {
+            border-color: var(--accent-blue);
+            background: #253346;
+            transform: translateY(-2px);
+        }
+
+        .preset-btn .p-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .preset-btn .p-meta {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
+
+        .sms-preview-box {
+            background: #080D1A;
+            border: 1px dashed var(--border-hover);
+            border-radius: 12px;
+            padding: 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            color: #94A3B8;
+            line-height: 1.5;
+            position: relative;
+        }
+
+        .sms-badge {
+            position: absolute;
+            top: -10px;
+            right: 16px;
+            background: var(--primary);
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 999px;
+            text-transform: uppercase;
+        }
+
+        /* Right Phone Mockup */
+        .phone-mockup {
+            background: #000000;
+            border: 3px solid #2D3748;
+            border-radius: 36px;
+            padding: 14px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            position: relative;
+            max-width: 380px;
+            margin: 0 auto;
+        }
+
+        .phone-notch {
+            width: 120px;
+            height: 18px;
+            background: #2D3748;
+            border-radius: 0 0 12px 12px;
+            margin: 0 auto 12px;
+        }
+
+        .phone-screen {
+            background: #0F172A;
+            border-radius: 26px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            overflow: hidden;
+            min-height: 520px;
+        }
+
+        .app-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .app-greeting {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
+
+        .app-user {
+            font-size: 1rem;
+            font-weight: 800;
+        }
+
+        .app-lock-icon {
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px;
+            border-radius: 8px;
+        }
+
+        /* Phone Balance Card */
+        .mock-balance-card {
+            background: linear-gradient(135deg, #059669, #10B981);
+            border-radius: 16px;
+            padding: 18px;
+            color: #FFFFFF;
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35);
+        }
+
+        .mock-bal-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+        }
+
+        .mock-bal-amount {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin: 4px 0 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .mock-bal-subrow {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Filter Pills */
+        .mock-pills {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            padding-bottom: 2px;
+        }
+
+        .mock-pill {
+            background: var(--card-bg-elevated);
+            color: var(--text-sub);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 999px;
+            white-space: nowrap;
+            cursor: pointer;
+            border: 1px solid var(--card-border);
+            transition: all 0.2s;
+        }
+
+        .mock-pill.active {
+            background: var(--text-main);
+            color: #0F172A;
+            border-color: var(--text-main);
+        }
+
+        /* Mock Transactions List */
+        .mock-tx-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+        }
+
+        .mock-tx-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 220px;
+            overflow-y: auto;
+        }
+
+        .mock-tx-item {
+            background: #1E293B;
+            border-radius: 12px;
+            padding: 10px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.2s, background 0.2s;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mock-tx-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mock-tx-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .mock-tx-info h5 {
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .mock-tx-info p {
+            font-size: 0.7rem;
+            color: var(--text-sub);
+        }
+
+        .mock-tx-right {
+            text-align: right;
+        }
+
+        .mock-tx-amt {
+            font-size: 0.85rem;
+            font-weight: 800;
+        }
+
+        .mock-tx-amt.debit {
+            color: #F43F5E;
+        }
+
+        .mock-tx-amt.credit {
+            color: #10B981;
+        }
+
+        /* Toast Popup in Mockup */
+        .mock-toast {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(16, 185, 129, 0.95);
+            color: #000;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 999px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.3s;
+            white-space: nowrap;
+        }
+
+        .mock-toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-10px);
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 28px;
+            transition: all 0.25s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .f-icon-green {
+            background: rgba(16, 185, 129, 0.12);
+            color: #10B981;
+        }
+
+        .f-icon-blue {
+            background: rgba(56, 189, 248, 0.12);
+            color: #38BDF8;
+        }
+
+        .f-icon-purple {
+            background: rgba(168, 85, 247, 0.12);
+            color: #A855F7;
+        }
+
+        .f-icon-amber {
+            background: rgba(245, 158, 11, 0.12);
+            color: #F59E0B;
+        }
+
+        .f-icon-red {
+            background: rgba(244, 63, 94, 0.12);
+            color: #F43F5E;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* 3-Step Setup */
+        .setup-section {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 48px;
+        }
+
+        .setup-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 36px;
+        }
+
+        .setup-header h2 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .setup-steps-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .setup-steps-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .setup-step {
+            background: var(--card-bg-elevated);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            color: #000;
+            font-weight: 800;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+
+        .setup-step h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .setup-step p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        /* FAQ Interactive Search & Accordion */
+        .faq-section {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 48px;
+        }
+
+        .faq-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 28px;
+        }
+
+        .faq-header h2 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .faq-search-box {
+            margin: 0 auto 28px;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .faq-search-input {
+            width: 100%;
+            padding: 12px 18px 12px 42px;
+            background: var(--card-bg-elevated);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .faq-search-input:focus {
+            border-color: var(--primary);
+        }
+
+        .faq-search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .faq-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: var(--card-bg-elevated);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--border-hover);
+        }
+
+        .faq-question {
+            padding: 18px 24px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            user-select: none;
+        }
+
+        .faq-toggle-icon {
+            font-size: 1.2rem;
+            color: var(--primary);
+            transition: transform 0.25s ease;
+        }
+
+        .faq-item.active .faq-toggle-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+            background: rgba(15, 23, 42, 0.4);
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            line-height: 1.65;
+            padding: 0 24px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 16px 24px 22px;
+            transition: max-height 0.3s ease-in-out;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header-bar">
+        <div class="header-inner">
+            <a href="index.html" class="brand-link">
+                <div class="brand-logo">
+                    <img src="assets/app_icon.png" alt="MySpends Logo" class="brand-logo-img">
+                </div>
+                <div>
+                    <span class="brand-name">MySpends</span>
+                </div>
+                <span class="brand-tag">Interactive Guide</span>
+            </a>
+            <div class="nav-links">
+                <a href="#simulator" class="nav-link">Live Cockpit</a>
+                <a href="#features" class="nav-link">Benefits</a>
+                <a href="#faq" class="nav-link">FAQs</a>
+                <a href="index.html" class="nav-link">Privacy Policy</a>
+                <a href="https://github.com/lakshmi247-ai/MySpends" target="_blank" rel="noopener noreferrer"
+                    class="btn-github">
+                    ⭐ GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-app-branding">
+                <div class="hero-icon-container">
+                    <img src="assets/app_icon.png" alt="MySpends Official App Icon" class="hero-icon-img">
+                    <span class="hero-icon-badge">v1.0.9+</span>
+                </div>
+            </div>
+            <div class="hero-badge">
+                <span>🛡️ 100% Offline &amp; Zero Data Leaks</span>
+            </div>
+            <h1 class="hero-title">
+                One App. All 4 Banks.<br>
+                <span>Zero Financial Headaches.</span>
+            </h1>
+            <p class="hero-subtitle">
+                Discover how Rohan untangled 4 bank accounts, countless UPI apps, and took back
+                control of his hard-earned money—without typing a single number.
+            </p>
+        </section>
+
+        <!-- Story Section: The 4-Bank Dilemma -->
+        <section class="story-container">
+            <div class="story-header">
+                <div class="avatar">👨‍💼</div>
+                <div class="story-meta">
+                    <h3>Meet Rohan's Financial Reality</h3>
+                    <p>29 years old • Working professional • Digital spender</p>
+                </div>
+            </div>
+
+            <p style="color: var(--text-sub); font-size: 1.05rem; margin-bottom: 16px;">
+                Like millions of us today, Rohan never carries cash. But over time, his financial life became fragmented
+                across <strong>4 separate bank accounts</strong> and multiple UPI payment apps:
+            </p>
+
+            <!-- 4 Banks Cards Grid -->
+            <div class="banks-grid">
+                <div class="bank-card active" onclick="highlightBank('hdfc')">
+                    <div class="bank-icon-row">
+                        <div class="bank-symbol hdfc">HDFC</div>
+                        <span class="bank-status">Primary</span>
+                    </div>
+                    <div class="bank-name">Salary Account</div>
+                    <div class="bank-role">Monthly paycheck, rent, main deposits</div>
+                </div>
+
+                <div class="bank-card" onclick="highlightBank('icici')">
+                    <div class="bank-icon-row">
+                        <div class="bank-symbol icici">ICICI</div>
+                        <span class="bank-status">Credit / EMI</span>
+                    </div>
+                    <div class="bank-name">Credit Card &amp; EMIs</div>
+                    <div class="bank-role">Car loan, shopping, flights, dining</div>
+                </div>
+
+                <div class="bank-card" onclick="highlightBank('sbi')">
+                    <div class="bank-icon-row">
+                        <div class="bank-symbol sbi">SBI</div>
+                        <span class="bank-status">Savings</span>
+                    </div>
+                    <div class="bank-name">Emergency Savings</div>
+                    <div class="bank-role">Family fund, electricity &amp; utility bills</div>
+                </div>
+
+                <div class="bank-card" onclick="highlightBank('kotak')">
+                    <div class="bank-icon-row">
+                        <div class="bank-symbol kotak">KOTAK</div>
+                        <span class="bank-status">UPI Daily</span>
+                    </div>
+                    <div class="bank-name">Pocket Money UPI</div>
+                    <div class="bank-role">Quick chai, autos, Swiggy, grocery QR codes</div>
+                </div>
+            </div>
+
+            <!-- The Problem vs Solution Box -->
+            <div class="comparison-grid">
+                <div class="comp-card before">
+                    <div class="comp-title">
+                        <span>❌ The Chaos (Before MySpends)</span>
+                    </div>
+                    <ul class="comp-list">
+                        <li>
+                            <span class="icon">🤯</span>
+                            <span><strong>4 Passwords &amp; MPINs:</strong> Spending 30 minutes every weekend logging
+                                into 4 slow apps just to check balances.</span>
+                        </li>
+                        <li>
+                            <span class="icon">🔍</span>
+                            <span><strong>Unreadable Codes:</strong> Squinting at cryptic statements like
+                                <code>UPI/DR/83910/ZOM</code> and guessing where money went.</span>
+                        </li>
+                        <li>
+                            <span class="icon">📞</span>
+                            <span><strong>Cloud Spy Apps:</strong> Other apps wanted his email, bank logins, and
+                                uploaded his data to sell him loans and spam calls.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="comp-card after">
+                    <div class="comp-title">
+                        <span>✅ The Peace of Mind (With MySpends)</span>
+                    </div>
+                    <ul class="comp-list">
+                        <li>
+                            <span class="icon">🎯</span>
+                            <span><strong>1 Unified Cockpit:</strong> All 4 bank accounts and UPI streams consolidated
+                                automatically onto one screen.</span>
+                        </li>
+                        <li>
+                            <span class="icon">🪄</span>
+                            <span><strong>Zero Typing:</strong> Bank SMS alerts turn instantly into clean categorized
+                                entries without opening an app.</span>
+                        </li>
+                        <li>
+                            <span class="icon">🔒</span>
+                            <span><strong>100% Private &amp; Offline:</strong> Everything stays inside the phone's
+                                private vault. Zero cloud, zero ads, zero spam.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Live Simulator Section -->
+        <section class="demo-section" id="simulator">
+            <div class="demo-title-area">
+                <span class="hero-badge">⚡ Interactive Simulator</span>
+                <h2>Try the MySpends Cockpit Live</h2>
+                <p>Click any transaction button below to see how MySpends intercepts the bank SMS, categorizes the
+                    purchase, and updates your balances in real time!</p>
+            </div>
+
+            <div class="simulator-layout">
+                <!-- Controls -->
+                <div class="controls-panel">
+                    <div class="control-group-title">
+                        <span>📲 Tap to Simulate an Event</span>
+                    </div>
+
+                    <div class="preset-buttons">
+                        <button class="preset-btn"
+                            onclick="simulateTx('Swiggy Order', 380, 'debit', 'Food & Dining', 'Kotak Bank ...5678', '🍔', 'KOTAK-SMS: Rs 380.00 debited from A/c ..5678 to VPA swiggy@icici')">
+                            <div class="p-title">
+                                <span>🍔 Swiggy Dinner</span>
+                                <span style="color: #F43F5E;">-₹380</span>
+                            </div>
+                            <div class="p-meta">Kotak UPI • Auto Categorized</div>
+                        </button>
+
+                        <button class="preset-btn"
+                            onclick="simulateTx('Salary Credited', 85000, 'credit', 'Income', 'HDFC Bank ...1234', '💼', 'HDFCBK: INR 85,000.00 credited to A/c ..1234 by SALARY OCT 2026')">
+                            <div class="p-title">
+                                <span>💼 Salary Credit</span>
+                                <span style="color: #10B981;">+₹85,000</span>
+                            </div>
+                            <div class="p-meta">HDFC Bank • Instant Balance Update</div>
+                        </button>
+
+                        <button class="preset-btn"
+                            onclick="simulateTx('Uber Ride', 215, 'debit', 'Commute', 'ICICI Card ...9012', '🚕', 'ICICIB: Alert! INR 215.00 spent on ICICI Credit Card ..9012 at UBER')">
+                            <div class="p-title">
+                                <span>🚕 Uber Commute</span>
+                                <span style="color: #F43F5E;">-₹215</span>
+                            </div>
+                            <div class="p-meta">ICICI Credit Card • Travel Tagged</div>
+                        </button>
+
+                        <button class="preset-btn"
+                            onclick="simulateTx('Electricity Bill', 1420, 'debit', 'Bills & Utilities', 'SBI Bank ...4321', '⚡', 'SBIINB: Dear Cust, Rs 1420.00 debited from A/c ..4321 for BESCOM BILL')">
+                            <div class="p-title">
+                                <span>⚡ Electricity Bill</span>
+                                <span style="color: #F43F5E;">-₹1,420</span>
+                            </div>
+                            <div class="p-meta">SBI Account • Utilities Filter</div>
+                        </button>
+
+                        <button class="preset-btn"
+                            onclick="simulateTx('Friend Split Paid', 650, 'credit', 'Income', 'Kotak Bank ...5678', '🤝', 'KOTAK-SMS: Rs 650.00 received in A/c ..5678 from AMIT SHARMA via UPI')">
+                            <div class="p-title">
+                                <span>🤝 Friend Dinner Split</span>
+                                <span style="color: #10B981;">+₹650</span>
+                            </div>
+                            <div class="p-meta">PhonePe UPI • Split Settlement</div>
+                        </button>
+
+                        <button class="preset-btn"
+                            onclick="simulateTx('ATM Cash Withdrawal', 3000, 'debit', 'Cash & ATM', 'HDFC Bank ...1234', '🏧', 'HDFCBK: INR 3,000.00 debited at ATM cash wdl from A/c ..1234')">
+                            <div class="p-title">
+                                <span>🏧 ATM Cash</span>
+                                <span style="color: #F43F5E;">-₹3,000</span>
+                            </div>
+                            <div class="p-meta">HDFC Debit • Cash Vault Tracked</div>
+                        </button>
+                    </div>
+
+                    <!-- Live Bank SMS Stream Box -->
+                    <div>
+                        <div class="control-group-title" style="margin-bottom: 8px;">
+                            <span>📨 Bank SMS Interceptor Feed</span>
+                        </div>
+                        <div class="sms-preview-box" id="smsFeed">
+                            <span class="sms-badge">100% On-Device</span>
+                            <span id="smsText">Tap any button above to watch how MySpends catches the SMS alert and
+                                extracts key data without touching the internet.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Mockup Screen -->
+                <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <!-- App Topbar -->
+                        <div class="app-topbar">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="assets/app_icon.png" alt="MySpends App"
+                                    style="width: 32px; height: 32px; border-radius: 9px; box-shadow: 0 2px 8px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15); flex-shrink: 0;">
+                                <div>
+                                    <div class="app-greeting">Good evening,</div>
+                                    <div class="app-user">Rohan's Vault 🔒</div>
+                                </div>
+                            </div>
+                            <div class="app-lock-icon">🛡️</div>
+                        </div>
+
+                        <!-- Balance Card -->
+                        <div class="mock-balance-card">
+                            <div class="mock-bal-label">Consolidated Net Balance</div>
+                            <div class="mock-bal-amount" id="netBalance">₹ 1,12,450</div>
+                            <div class="mock-bal-subrow">
+                                <span>Spent: <b id="totalSpend" style="color:#FFF;">₹ 34,220</b></span>
+                                <span>Income: <b id="totalIncome" style="color:#FFF;">₹ 1,46,670</b></span>
+                            </div>
+                        </div>
+
+                        <!-- Filter Pills -->
+                        <div class="mock-pills">
+                            <div class="mock-pill active" onclick="filterMockAccount('all', this)">All (4 Banks)</div>
+                            <div class="mock-pill" onclick="filterMockAccount('HDFC', this)">HDFC</div>
+                            <div class="mock-pill" onclick="filterMockAccount('ICICI', this)">ICICI</div>
+                            <div class="mock-pill" onclick="filterMockAccount('SBI', this)">SBI</div>
+                            <div class="mock-pill" onclick="filterMockAccount('Kotak', this)">Kotak</div>
+                        </div>
+
+                        <!-- Live Transactions Feed -->
+                        <div class="mock-tx-header">
+                            <span>Recent Transactions</span>
+                            <span style="color: var(--primary); font-size: 0.72rem;">Live Auto-Sync</span>
+                        </div>
+
+                        <div class="mock-tx-list" id="txList">
+                            <div class="mock-tx-item" data-bank="Kotak">
+                                <div class="mock-tx-left">
+                                    <div class="mock-tx-icon">☕</div>
+                                    <div class="mock-tx-info">
+                                        <h5>Blue Tokai Coffee</h5>
+                                        <p>Kotak UPI • Food &amp; Dining</p>
+                                    </div>
+                                </div>
+                                <div class="mock-tx-right">
+                                    <div class="mock-tx-amt debit">-₹240</div>
+                                </div>
+                            </div>
+
+                            <div class="mock-tx-item" data-bank="ICICI">
+                                <div class="mock-tx-left">
+                                    <div class="mock-tx-icon">🛍️</div>
+                                    <div class="mock-tx-info">
+                                        <h5>Amazon India</h5>
+                                        <p>ICICI Card • Shopping</p>
+                                    </div>
+                                </div>
+                                <div class="mock-tx-right">
+                                    <div class="mock-tx-amt debit">-₹1,899</div>
+                                </div>
+                            </div>
+
+                            <div class="mock-tx-item" data-bank="SBI">
+                                <div class="mock-tx-left">
+                                    <div class="mock-tx-icon">🏠</div>
+                                    <div class="mock-tx-info">
+                                        <h5>House Rent Transfer</h5>
+                                        <p>SBI Account • Housing</p>
+                                    </div>
+                                </div>
+                                <div class="mock-tx-right">
+                                    <div class="mock-tx-amt debit">-₹22,000</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- In-app Toast message -->
+                        <div class="mock-toast" id="mockToast">Parsed 1 New SMS Alert!</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Showcase Section -->
+        <section id="features">
+            <div style="text-align: center; max-width: 650px; margin: 0 auto 36px;">
+                <span class="hero-badge">💎 Core Advantages</span>
+                <h2 style="font-size: 2.1rem; font-weight: 800; letter-spacing: -0.5px;">Why MySpends Feels Like Pure
+                    Magic</h2>
+                <p style="color: var(--text-sub); font-size: 1rem;">Built specifically for the real world of
+                    multi-account Indian banking, UPI apps, and modern privacy demands.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-box f-icon-green">🎯</div>
+                    <h3>Multi-Bank Cockpit</h3>
+                    <p>Whether you hold accounts in HDFC, SBI, ICICI, Axis, Kotak, or regional banks, MySpends
+                        consolidates all debits and credits into one synchronized view with individual bank limit
+                        tracking.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-box f-icon-blue">🪄</div>
+                    <h3>Zero Manual Entry</h3>
+                    <p>Forget opening an app every time you buy coffee. MySpends detects your bank SMS notifications the
+                        instant they hit your phone and takes care of the bookkeeping while you live your life.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-box f-icon-purple">🧠</div>
+                    <h3>Smart Category Engine</h3>
+                    <p>Translates unreadable bank codes like <code>UPI/3910/SWIG</code> into <strong>Swiggy (Food &amp;
+                            Dining)</strong>. Plus, when you edit a shop, it learns your custom rules for the next time
+                        automatically.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-box f-icon-amber">🛡️</div>
+                    <h3>100% Offline Vault</h3>
+                    <p>No remote servers, no user accounts, and no data sales. Your transactions remain in an encrypted
+                        database right on your device. You can use it without an internet connection!</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-box f-icon-red">🚦</div>
+                    <h3>Budget Guardrails</h3>
+                    <p>Set custom spending thresholds for your overall month or specifically for your daily UPI account.
+                        Friendly notifications give you early warnings before month-end panic arrives.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-box f-icon-green">📊</div>
+                    <h3>Visual Insights &amp; Map</h3>
+                    <p>Animated donut charts show your category proportions at a glance, monthly bar trends reveal
+                        whether you are saving more, and an interactive heatmap plots your local spending hotspots.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3-Step Setup Guide -->
+        <section class="setup-section">
+            <div class="setup-header">
+                <span class="hero-badge">🚀 Instant Setup</span>
+                <h2>Get Started in Less Than 60 Seconds</h2>
+                <p style="color: var(--text-sub);">No passwords to remember, no bank portals to link, no lengthy forms.
+                </p>
+            </div>
+
+            <div class="setup-steps-row">
+                <div class="setup-step">
+                    <div class="step-number">1</div>
+                    <h4>Install MySpends</h4>
+                    <p>Download the lightweight Android app. No sign-up, no email verification, and no password setup
+                        required.</p>
+                </div>
+
+                <div class="setup-step">
+                    <div class="step-number">2</div>
+                    <h4>Grant SMS Permission</h4>
+                    <p>Allow MySpends to read banking SMS alerts. It only parses official bank sender IDs—never personal
+                        texts or OTPs.</p>
+                </div>
+
+                <div class="setup-step">
+                    <div class="step-number">3</div>
+                    <h4>Scan Past 30 Days</h4>
+                    <p>Tap "Scan Past Messages". In under 10 seconds, all 4 of your bank accounts and UPI expenses
+                        assemble into a clean dashboard.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive FAQ Accordion -->
+        <section class="faq-section" id="faq">
+            <div class="faq-header">
+                <span class="hero-badge">❓ Plain English FAQ</span>
+                <h2>Frequently Asked Questions</h2>
+                <p style="color: var(--text-sub);">Everything you need to know about safety, SMS alerts, and your data.
+                </p>
+            </div>
+
+            <div class="faq-search-box">
+                <span class="faq-search-icon">🔍</span>
+                <input type="text" class="faq-search-input" id="faqSearch"
+                    placeholder="Type a question (e.g. 'what if bank doesn't send sms?')..." oninput="filterFaq()">
+            </div>
+
+            <div class="faq-accordion" id="faqList">
+
+                <!-- FAQ 1: Bank doesn't send SMS -->
+                <div class="faq-item active">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>What if my bank doesn't send an SMS for a transaction?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>This is very common! Some banks skip sending SMS for small micro-payments (like a ₹10 chai
+                            via UPI) to save telecom costs, or they send an end-of-day summary instead.</p>
+                        <p style="margin-top: 8px;"><strong>Here is how MySpends keeps you covered:</strong></p>
+                        <ul style="margin: 8px 0 0 18px;">
+                            <li><strong>5-Second Manual Entry:</strong> Tap the floating <code>+</code> button on your
+                                dashboard, type the amount, pick the category, and save it instantly.</li>
+                            <li><strong>Turn on Bank SMS Alerts:</strong> Most major banks (HDFC, SBI, ICICI, Kotak,
+                                Axis) allow you to turn on instant SMS alerts for all transactions in your official
+                                mobile banking settings under <em>Alerts &amp; Notifications</em>.</li>
+                            <li><strong>Daily Summaries:</strong> When your bank sends a daily debit summary SMS,
+                                MySpends reads it and helps keep your totals balanced.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- FAQ 2: Delete SMS -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>If I delete an SMS from my phone's message inbox, will it disappear from MySpends?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>No, your records are completely safe.</strong> Once MySpends parses and logs a
+                            transaction, it is stored permanently in your local on-device database. Deleting or clearing
+                            text messages from your Android Messages app will never erase your transactions or charts in
+                            MySpends.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3: Misclassified category -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>What if MySpends assigns the wrong category to a store?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can change it with one tap! Simply open the transaction, pick the right category, and tap
+                            save.</p>
+                        <p style="margin-top: 6px;"><strong>Smart Learning Engine:</strong> When you update a merchant's
+                            category, MySpends automatically remembers your choice so future transactions at that store
+                            are categorized correctly every time.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4: Multiple Banks and UPI setup -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>I have 4 bank accounts and multiple UPI apps. Do I have to configure each one?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Zero setup needed!</strong> Whenever any bank sends a transaction notification,
+                            MySpends automatically detects the bank name, the last 4 digits of your account, and whether
+                            it was a UPI transfer or card swipe. It creates individual buckets for each bank
+                            automatically.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5: Can MySpends move money -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Can MySpends move, withdraw, or transfer money from my accounts?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Never.</strong> MySpends has zero connection to your bank credentials, net banking
+                            passwords, or UPI PINs. It is strictly a smart reader that takes notes from the SMS messages
+                            your bank already sends to your phone. It cannot initiate payments.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6: OTPs and Personal Messages -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Does MySpends read my private personal chats or secret OTPs?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Strictly no.</strong> MySpends has built-in safety filters that ignore personal
+                            chats, family messages, two-factor OTPs, and promotional spam. It only processes verified
+                            transaction alerts from official banking sender IDs.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 7: Cloud and Internet -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Does MySpends upload my financial data to cloud servers?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>No.</strong> All your financial data, account numbers, and transaction logs stay 100%
+                            on your device in your private local database. You can turn off Wi-Fi and mobile data
+                            completely, and MySpends will continue working normally without any issues.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 8: Battery consumption -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Does MySpends drain my phone's battery in the background?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Not at all.</strong> MySpends doesn't run constant background polling. It stays
+                            completely asleep, wakes up for a millisecond only when a bank SMS arrives to record the
+                            numbers, and goes right back to sleep.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 11: Exporting data & New Phone -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>11. What if I buy a new phone or want to open my data in Excel?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>You are the sole owner of your data.</strong> Because MySpends does not store your
+                            records in the cloud, you can tap the <strong>Export</strong> button in the app at any time
+                            to generate a clean CSV or Excel file. You can email it to yourself, save it to Google
+                            Drive.</p>
+                        <p
+                            style="margin-top: 10px; padding: 10px 14px; background: rgba(56, 189, 248, 0.1); border-left: 3px solid var(--accent-blue); border-radius: 6px; font-size: 0.9rem;">
+                            <strong>Note:</strong> MySpends is built <em>strictly for personal evaluation</em>,
+                            financial self-awareness, and personal expense tracking. It helps you see and understand
+                            your daily cash flow with ease, without acting as an official statutory audit or banking
+                            service.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px;">
+                <img src="assets/app_icon.png" alt="MySpends Logo"
+                    style="width: 28px; height: 28px; border-radius: 8px; box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);">
+                <span style="font-weight: 800; font-size: 1.1rem; color: var(--text-main);">MySpends</span>
+            </div>
+            <p>&copy; 2026 MySpends Team. All rights reserved.</p>
+            <p style="margin-top: 6px;">
+                <a href="index.html">Privacy Policy &amp; Open Source Licenses</a> &bull;
+                <a href="USER_GUIDE.md">Markdown User Guide</a> &bull;
+                <a href="https://github.com/lakshmi247-ai/MySpends" target="_blank" rel="noopener noreferrer">GitHub
+                    Repository</a>
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // State for Mockup
+        let currentBalance = 112450;
+        let currentSpend = 34220;
+        let currentIncome = 146670;
+
+        function simulateTx(title, amount, type, category, account, icon, sms) {
+            // Update SMS Feed
+            const smsFeed = document.getElementById('smsText');
+            smsFeed.innerText = sms;
+
+            // Recalculate Numbers
+            if (type === 'debit') {
+                currentBalance -= amount;
+                currentSpend += amount;
+            } else {
+                currentBalance += amount;
+                currentIncome += amount;
+            }
+
+            // Update Phone DOM
+            document.getElementById('netBalance').innerText = '₹ ' + currentBalance.toLocaleString('en-IN');
+            document.getElementById('totalSpend').innerText = '₹ ' + currentSpend.toLocaleString('en-IN');
+            document.getElementById('totalIncome').innerText = '₹ ' + currentIncome.toLocaleString('en-IN');
+
+            // Prepend transaction item in phone screen
+            const txList = document.getElementById('txList');
+            const item = document.createElement('div');
+            item.className = 'mock-tx-item';
+
+            // Extract bank keyword
+            let bankName = 'Kotak';
+            if (account.includes('HDFC')) bankName = 'HDFC';
+            else if (account.includes('ICICI')) bankName = 'ICICI';
+            else if (account.includes('SBI')) bankName = 'SBI';
+            item.setAttribute('data-bank', bankName);
+
+            const amtClass = type === 'debit' ? 'debit' : 'credit';
+            const amtPrefix = type === 'debit' ? '-₹' : '+₹';
+
+            item.innerHTML = `
+                <div class="mock-tx-left">
+                    <div class="mock-tx-icon">${icon}</div>
+                    <div class="mock-tx-info">
+                        <h5>${title}</h5>
+                        <p>${account} • ${category}</p>
+                    </div>
+                </div>
+                <div class="mock-tx-right">
+                    <div class="mock-tx-amt ${amtClass}">${amtPrefix}${amount.toLocaleString('en-IN')}</div>
+                </div>
+            `;
+
+            txList.insertBefore(item, txList.firstChild);
+
+            // Trigger Toast
+            const toast = document.getElementById('mockToast');
+            toast.innerText = `Auto-saved ${amtPrefix}${amount.toLocaleString('en-IN')} from ${bankName}!`;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+
+        function filterMockAccount(bank, pillEl) {
+            // Toggle active pill
+            const pills = document.querySelectorAll('.mock-pill');
+            pills.forEach(p => p.classList.remove('active'));
+            pillEl.classList.add('active');
+
+            // Filter transactions
+            const items = document.querySelectorAll('.mock-tx-item');
+            items.forEach(item => {
+                if (bank === 'all') {
+                    item.style.display = 'flex';
+                } else {
+                    const itemBank = item.getAttribute('data-bank');
+                    if (itemBank && itemBank.toLowerCase().includes(bank.toLowerCase())) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        function highlightBank(bankKey) {
+            const cards = document.querySelectorAll('.bank-card');
+            cards.forEach(c => c.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+
+        // Accordion Toggle
+        function toggleFaq(questionEl) {
+            const item = questionEl.parentElement;
+            item.classList.toggle('active');
+        }
+
+        // Live FAQ Search Filter
+        function filterFaq() {
+            const query = document.getElementById('faqSearch').value.toLowerCase().trim();
+            const items = document.querySelectorAll('.faq-item');
+
+            items.forEach(item => {
+                const qText = item.querySelector('.faq-question span').innerText.toLowerCase();
+                const aText = item.querySelector('.faq-answer').innerText.toLowerCase();
+
+                if (qText.includes(query) || aText.includes(query)) {
+                    item.style.display = 'block';
+                    if (query.length > 2) {
+                        item.classList.add('active');
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
