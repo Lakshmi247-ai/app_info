@@ -2,8 +2,7 @@
 
 **Effective Date:** October 1, 2026  
 **Last Updated:** October 1, 2026  
-**Application Name:** MySpends (`com.orbit.myspends`)  
-**Website / Web Policy:** [https://lakshmi247-ai.github.io/MySpends/](https://lakshmi247-ai.github.io/MySpends/)
+**Application Name:** MySpends (`com.orbit.myspends`) 
 
 MySpends ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how your information is handled when you use our mobile application **MySpends** available on Google Play.
 

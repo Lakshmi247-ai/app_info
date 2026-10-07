@@ -173,8 +173,6 @@ Verify parsing accuracy across major Indian and international banks:
 
 ## 5. QA Sign-Off Criteria for Release
 
-Before any build (e.g., `v1.1.3` / `v1.1.4`) is approved for production release on Google Play:
-
 - [ ] **Zero P0 / Crash bugs:** No unhandled exceptions on app launch, SMS scan, or currency conversion.
 - [ ] **Privacy Verification:** Packet inspection (e.g., via Charles / Wireshark) confirms zero SMS content or transaction details are transmitted externally.
 - [ ] **Parser Accuracy Threshold:** ≥ 98% accuracy on standard test SMS suite across top 10 Indian banks.
