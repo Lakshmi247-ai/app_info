@@ -11,9 +11,9 @@
     <link rel="apple-touch-icon" href="assets/app_icon.png">
     <style>
         :root {
-            --primary: #10B981;
-            --primary-dark: #059669;
-            --primary-light: rgba(16, 185, 129, 0.12);
+            --primary: #2563EB;
+            --primary-dark: #1D4ED8;
+            --primary-light: rgba(37, 99, 235, 0.12);
             --bg: #0F172A;
             --card-bg: #1E293B;
             --card-bg-elevated: #243248;
@@ -21,7 +21,7 @@
             --text-sub: #94A3B8;
             --border: #334155;
             --accent-blue: #38BDF8;
-            --badge-bg: rgba(16, 185, 129, 0.15);
+            --badge-bg: rgba(37, 99, 235, 0.15);
         }
 
         * {
@@ -70,13 +70,13 @@
         .brand-icon {
             width: 48px;
             height: 48px;
-            background: linear-gradient(135deg, #10B981, #059669);
+            background: linear-gradient(135deg, #2563EB, #1D4ED8);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
         }
 
         .brand-title {
@@ -128,7 +128,7 @@
         .tab-btn.active {
             color: #FFFFFF;
             background: var(--primary);
-            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+            box-shadow: 0 2px 10px rgba(37, 99, 235, 0.4);
         }
 
         /* Content Sections */
@@ -229,11 +229,11 @@
             font-size: 0.82rem;
             font-weight: 600;
             margin-bottom: 14px;
-            border: 1px solid rgba(16, 185, 129, 0.25);
+            border: 1px solid rgba(37, 99, 235, 0.3);
         }
 
         .info-box {
-            background: rgba(16, 185, 129, 0.08);
+            background: rgba(37, 99, 235, 0.08);
             border-left: 4px solid var(--primary);
             padding: 16px 20px;
             border-radius: 8px;
@@ -609,7 +609,7 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <p>&copy; 2026 MySpends Team. All rights reserved.</p>
+            <p>&copy; <span class="current-year">2026</span> MySpends. All rights reserved.</p>
             <p style="margin-top: 6px; font-size: 0.8rem; color: #64748B;">Committed to 100% offline financial privacy,
                 transparency, and open software standards.</p>
         </footer>
@@ -640,6 +640,7 @@
 
         // Handle URL Hash deep-linking on page load
         window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.current-year').forEach(el => el.textContent = new Date().getFullYear());
             if (window.location.hash === '#licenses') {
                 switchTab('licenses');
             } else {
