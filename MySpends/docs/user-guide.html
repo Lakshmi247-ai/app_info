@@ -780,6 +780,132 @@
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
+        /* Health Score Mockup Card */
+        .mock-health-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 12px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .mock-health-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .health-score-val {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: #FFFFFF;
+            font-size: 0.85rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+            flex-shrink: 0;
+            transition: all 0.3s;
+        }
+
+        .health-score-meta {
+            line-height: 1.25;
+        }
+
+        .health-score-title {
+            font-size: 0.75rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .health-score-sub {
+            font-size: 0.68rem;
+            color: var(--text-sub);
+        }
+
+        .health-pill-tag {
+            font-size: 0.65rem;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--accent-blue);
+            padding: 2px 7px;
+            border-radius: 6px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        /* Reminder Mockup Card */
+        .mock-reminder-widget {
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 12px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .mock-reminder-widget.paid {
+            background: rgba(16, 185, 129, 0.08);
+            border-color: rgba(16, 185, 129, 0.35);
+        }
+
+        .mock-rem-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mock-rem-icon {
+            font-size: 1.1rem;
+        }
+
+        .mock-rem-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .mock-rem-due {
+            font-size: 0.68rem;
+            color: #F59E0B;
+            font-weight: 600;
+        }
+
+        .mock-reminder-widget.paid .mock-rem-due {
+            color: #10B981;
+        }
+
+        .mock-rem-btn {
+            background: #F59E0B;
+            color: #000;
+            font-size: 0.68rem;
+            font-weight: 700;
+            border: none;
+            padding: 4px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.15s, background 0.2s;
+            white-space: nowrap;
+        }
+
+        .mock-rem-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .mock-rem-btn.paid {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+            cursor: default;
+        }
+
         /* Filter Pills */
         .mock-pills {
             display: flex;
@@ -1730,6 +1856,14 @@
                                 <code>UPI/DR/83910/ZOM</code> and guessing where money went.</span>
                         </li>
                         <li>
+                            <span class="icon">⏰</span>
+                            <span><strong>Forgotten Bills &amp; Late Fees:</strong> Missing utility due dates and OTT renewals scattered across accounts, incurring avoidable penalties.</span>
+                        </li>
+                        <li>
+                            <span class="icon">🌫️</span>
+                            <span><strong>Financial Blindspots:</strong> Wondering whether he was financially healthy or overspending with zero objective benchmark.</span>
+                        </li>
+                        <li>
                             <span class="icon">📞</span>
                             <span><strong>Cloud Spy Apps:</strong> Other apps wanted his email, bank logins, and
                                 uploaded his data to sell him loans and spam calls.</span>
@@ -1751,6 +1885,18 @@
                             <span class="icon">🪄</span>
                             <span><strong>Zero Typing:</strong> Bank SMS alerts turn instantly into clean categorized
                                 entries without opening an app.</span>
+                        </li>
+                        <li>
+                            <span class="icon">⏰</span>
+                            <span><strong>Smart Reminders &amp; Auto-Match:</strong> Proactive 9:00 AM alerts before due dates. Paying via UPI automatically marks the bill as PAID!</span>
+                        </li>
+                        <li>
+                            <span class="icon">🩺</span>
+                            <span><strong>0–100 Health Score:</strong> Instant financial fitness metric (84 • Good) tracking budget discipline, savings ratio, and bill reliability.</span>
+                        </li>
+                        <li>
+                            <span class="icon">💡</span>
+                            <span><strong>Deep Spending Insights:</strong> Plain-English observations that caught a 35% dining spike before it damaged his monthly savings.</span>
                         </li>
                         <li>
                             <span class="icon">🔒</span>
@@ -1832,6 +1978,33 @@
                             </div>
                             <div class="p-meta">HDFC Debit • Cash Vault Tracked</div>
                         </button>
+
+                        <button class="preset-btn" style="border-left: 3px solid #F59E0B;"
+                            onclick="simulateReminderPay()">
+                            <div class="p-title">
+                                <span>⏰ Pay Airtel Broadband</span>
+                                <span style="color: #F59E0B;">-₹999</span>
+                            </div>
+                            <div class="p-meta">Auto-Matches Reminder &amp; Marks Paid!</div>
+                        </button>
+
+                        <button class="preset-btn" style="border-left: 3px solid #A855F7;"
+                            onclick="simulateInsight()">
+                            <div class="p-title">
+                                <span>💡 Deep Spending Insight</span>
+                                <span style="color: #A855F7;">Analyze</span>
+                            </div>
+                            <div class="p-meta">Detects 34% Dining Jump on Device</div>
+                        </button>
+
+                        <button class="preset-btn" style="border-left: 3px solid #10B981;"
+                            onclick="simulateHealthBoost()">
+                            <div class="p-title">
+                                <span>🩺 Financial Health Score</span>
+                                <span style="color: #10B981;">84 ➔ 88</span>
+                            </div>
+                            <div class="p-meta">Evaluates 4 Pillars of Financial Fitness</div>
+                        </button>
                     </div>
 
                     <!-- Live Bank SMS Stream Box -->
@@ -1872,6 +2045,30 @@
                                 <span>Spent: <b id="totalSpend" style="color:#FFF;">₹ 34,220</b></span>
                                 <span>Income: <b id="totalIncome" style="color:#FFF;">₹ 1,46,670</b></span>
                             </div>
+                        </div>
+
+                        <!-- Health Score Mini Widget -->
+                        <div class="mock-health-card">
+                            <div class="mock-health-left">
+                                <span class="health-score-val" id="mockHealthScore">84</span>
+                                <div class="health-score-meta">
+                                    <div class="health-score-title">Financial Health: <b id="mockHealthTier" style="color: #10B981;">Good</b></div>
+                                    <div class="health-score-sub" id="mockHealthDesc">Budget 92% • Bills 100% on track</div>
+                                </div>
+                            </div>
+                            <div class="health-pill-tag">🩺 On-Device</div>
+                        </div>
+
+                        <!-- Active Reminder Card Widget -->
+                        <div class="mock-reminder-widget" id="mockReminderWidget">
+                            <div class="mock-rem-left">
+                                <div class="mock-rem-icon">⏰</div>
+                                <div class="mock-rem-info">
+                                    <div class="mock-rem-title">Airtel Broadband Due</div>
+                                    <div class="mock-rem-due" id="mockRemDue">Due Tomorrow • ₹999</div>
+                                </div>
+                            </div>
+                            <button class="mock-rem-btn" id="mockRemBtn" onclick="simulateReminderPay()">Pay via UPI</button>
                         </div>
 
                         <!-- Filter Pills -->
@@ -1990,6 +2187,24 @@
                     <h3>Visual Insights &amp; Map</h3>
                     <p>Animated donut charts show your category proportions at a glance, monthly bar trends reveal
                         whether you are saving more, and an interactive heatmap plots your local spending hotspots.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-box f-icon-blue">🩺</div>
+                    <h3>Financial Health Score</h3>
+                    <p>A comprehensive 0–100 wellness metric computed on-device across 4 key pillars: budget adherence, savings ratio, recurring bill discipline, and spend stability with actionable improvement tips.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-box f-icon-purple">💡</div>
+                    <h3>Deep Spending Insights</h3>
+                    <p>Uncovers month-over-month category shifts, essential vs discretionary ratios, and unusual spending spikes completely offline without cloud AI or telemetry.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon-box f-icon-amber">⏰</div>
+                    <h3>Bill &amp; Recurring Reminders</h3>
+                    <p>Smart auto-detection for utilities, rent, and subscriptions with custom alert lead times, automatic payment matching via debit SMS, and flexible cycle management.</p>
                 </div>
             </div>
         </section>
@@ -2182,6 +2397,69 @@
                     </div>
                 </div>
 
+                <!-- FAQ 12: Financial Health Score -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>12. How does the Financial Health Score work and how do I improve it?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Your Financial Health Score is a transparent 0 to 100 fitness metric evaluated 100% on your device using 4 key pillars:</p>
+                        <ul style="margin: 8px 0 8px 20px;">
+                            <li><strong>Budget Discipline (30%):</strong> Respecting your overall and bank-specific budget caps.</li>
+                            <li><strong>Savings &amp; Net Cash Flow (30%):</strong> Maintaining a healthy positive gap between income and spends.</li>
+                            <li><strong>Recurring Bill Reliability (25%):</strong> Tracking and paying bills on time without overdue cycles.</li>
+                            <li><strong>Spend Stability (15%):</strong> Keeping predictable, non-erratic day-to-day spending patterns.</li>
+                        </ul>
+                        <p>You can boost your score by setting realistic monthly budgets, logging all recurring obligations, and avoiding impulse spikes.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 13: Bill Reminders and Auto-Match -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>13. How do Bill Reminders and the Auto-Match feature work?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>MySpends lets you set reminders with customizable lead times (Same day, 1, 3, or 5 days before) ringing with our signature notification sound at 9:00 AM.</p>
+                        <p style="margin-top: 8px;"><strong>Auto-Match Intelligence:</strong> When you pay a bill, your bank sends a debit SMS alert. MySpends detects that the merchant and amount match your active reminder, <em>automatically marks the cycle as PAID</em>, cancels the redundant alarm, and rolls forward to the next billing cycle. If ever marked by mistake, you can easily toggle it back to unpaid.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 14: One-time vs Recurring Reminders -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>14. Can I create one-time reminders as well as recurring ones?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Yes, absolutely.</strong> While MySpends excels at recurring cycles (weekly, monthly, quarterly, yearly), you can select <strong>"One-Time"</strong> frequency for ad-hoc obligations—like paying an annual exam fee, a one-off loan repayment to a friend, or an appliance installation fee. Once marked paid, one-time reminders move into your completed history without generating future cycles.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 15: Accidental Mark as Paid -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>15. What if I accidentally mark a reminder as paid or need to adjust it?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Total flexibility:</strong> If you or an action mistakenly marks a reminder occurrence as completed, simply tap the reminder to open the detail sheet and click <strong>"↩️ Mark as Unpaid"</strong>. It immediately restores to pending state and re-enables your alerts. You can also edit the title, amount, category, frequency, or lead-time notification days at any point.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 16: Privacy of Health Score and Insights -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>16. Are Financial Health Scores and Insights calculated using remote cloud AI?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Strictly 100% on-device.</strong> Neither your Financial Health Score nor your spending insights are computed by sending your data to external cloud AI, remote LLMs, or third-party servers. All mathematical evaluations, category trend detections, and pillar scores run locally in your phone's processor using private, deterministic algorithms.</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -2209,6 +2487,89 @@
         let currentBalance = 112450;
         let currentSpend = 34220;
         let currentIncome = 146670;
+        let healthScore = 84;
+        let isReminderPaid = false;
+
+        function simulateReminderPay() {
+            if (isReminderPaid) {
+                // Toggle back to unpaid to demonstrate undo flexibility
+                isReminderPaid = false;
+                const remWidget = document.getElementById('mockReminderWidget');
+                const remBtn = document.getElementById('mockRemBtn');
+                const remDue = document.getElementById('mockRemDue');
+                if (remWidget && remBtn && remDue) {
+                    remWidget.classList.remove('paid');
+                    remBtn.classList.remove('paid');
+                    remBtn.innerText = 'Pay via UPI';
+                    remDue.innerText = 'Due Tomorrow • ₹999';
+                }
+                const toast = document.getElementById('mockToast');
+                toast.innerText = '↩️ Reminder toggled back to Unpaid!';
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2500);
+                return;
+            }
+
+            // Simulate the payment SMS
+            simulateTx('Airtel Broadband', 999, 'debit', 'Bills & Utilities', 'SBI Bank ...4321', '📶', 'SBIINB: Dear Cust, Rs 999.00 debited from A/c ..4321 to AIRTEL BROADBAND on 25-OCT-26 via UPI. Ref: 429102');
+
+            isReminderPaid = true;
+            const remWidget = document.getElementById('mockReminderWidget');
+            const remBtn = document.getElementById('mockRemBtn');
+            const remDue = document.getElementById('mockRemDue');
+            if (remWidget && remBtn && remDue) {
+                remWidget.classList.add('paid');
+                remBtn.classList.add('paid');
+                remBtn.innerText = '✓ Auto-Paid (Tap to undo)';
+                remDue.innerText = '✓ Auto-Matched & Marked PAID';
+            }
+
+            // Bump Health Score for clearing bill on time
+            healthScore = Math.min(100, healthScore + 4);
+            updateHealthDisplay(healthScore);
+
+            const toast = document.getElementById('mockToast');
+            toast.innerText = '⏰ Reminder Auto-Matched & Marked PAID!';
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        function simulateInsight() {
+            const smsFeed = document.getElementById('smsText');
+            smsFeed.innerHTML = '<strong>💡 Deep Spending Insight Detected:</strong> Dining & food delivery jumped +34% over last week. <em>Discretionary spends at 48% of total outflow.</em> Recommendation: Set a ₹4,000 food budget cap.';
+
+            const toast = document.getElementById('mockToast');
+            toast.innerText = '💡 Deep Spending Insight Generated!';
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+
+        function simulateHealthBoost() {
+            healthScore = Math.min(100, healthScore + 3);
+            updateHealthDisplay(healthScore);
+
+            const smsFeed = document.getElementById('smsText');
+            smsFeed.innerHTML = '<strong>🩺 Financial Health Re-evaluated:</strong> Budget discipline: 94/100 • Savings ratio: 82/100 • Bill reliability: 100/100 • Spend stability: 88/100. Overall score: <strong>' + healthScore + '/100 (Excellent)</strong>.';
+
+            const toast = document.getElementById('mockToast');
+            toast.innerText = `🩺 Health Score Updated: ${healthScore} • Excellent!`;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+
+        function updateHealthDisplay(score) {
+            const el = document.getElementById('mockHealthScore');
+            const tier = document.getElementById('mockHealthTier');
+            const desc = document.getElementById('mockHealthDesc');
+            if (el) el.innerText = score;
+            if (tier) {
+                tier.innerText = score >= 85 ? 'Excellent' : 'Good';
+                tier.style.color = score >= 85 ? '#10B981' : '#38BDF8';
+            }
+            if (desc) {
+                desc.innerText = score >= 85 ? 'Budget 96% • Bills 100% on track' : 'Budget 92% • Bills 100% on track';
+            }
+        }
 
         function simulateTx(title, amount, type, category, account, icon, sms) {
             // Update SMS Feed

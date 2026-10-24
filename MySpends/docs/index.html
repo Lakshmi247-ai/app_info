@@ -370,7 +370,7 @@
             <h1>Privacy Policy for MySpends</h1>
             <div class="meta">
                 <div class="meta-item"><strong>Package:</strong> <code>com.orbit.myspends</code></div>
-                <div class="meta-item"><strong>Effective Date:</strong> October 1, 2026</div>
+                <div class="meta-item"><strong>Effective Date:</strong> October 25, 2026</div>
                 <!-- <div class="meta-item"><strong>Version:</strong> 1.0.9+</div> -->
             </div>
 
@@ -423,14 +423,13 @@
                     processes raw biometric samples or templates.</li>
             </ul>
 
-            <h3>C. Push Notifications (POST_NOTIFICATIONS)</h3>
-            <p><strong>Purpose:</strong> Delivering local spending alerts, monthly budget limits warnings, and daily
-                financial wisdom reminders.</p>
+            <h3>C. Push Notifications & Local Reminders (POST_NOTIFICATIONS & RECEIVE_BOOT_COMPLETED)</h3>
+            <p><strong>Purpose:</strong> Delivering local spending alerts, monthly budget limits warnings, bill & recurring payment reminders, and daily financial wisdom notifications.</p>
             <ul>
-                <li>All notifications are scheduled and dispatched <strong>locally on your device</strong> using
-                    Android's WorkManager framework.</li>
-                <li>No remote push notification servers (e.g., FCM tracking servers) are utilized to track your device.
-                </li>
+                <li>All notifications are scheduled and dispatched <strong>locally on your device</strong> using Android's native <code>AlarmManager</code> and <code>WorkManager</code> frameworks.</li>
+                <li>When your phone reboots, <code>RECEIVE_BOOT_COMPLETED</code> is utilized solely to restore your scheduled local reminder alarms locally on device.</li>
+                <li>No remote push notification servers (e.g., FCM tracking servers) or cloud messaging tokens are utilized.</li>
+                <li>Notification alert chimes are played from a bundled local audio asset directly on your phone.</li>
             </ul>
 
             <h3>D. Internet Access (INTERNET & ACCESS_NETWORK_STATE)</h3>
@@ -449,6 +448,10 @@
             <p><strong>Purpose:</strong> Optionally tagging the geographical location where a manual transaction was
                 logged to populate the interactive spending heatmap. Location data remains entirely on-device and is
                 never shared.</p>
+
+            <h3>F. On-Device Financial Health Score & Spending Insights</h3>
+            <p><strong>100% Local Intelligence:</strong> All financial health score metrics (budget discipline, savings rate, recurring obligation tracking, and spend volatility) and deep spending insights (anomalies, category shifts, and month-over-month comparisons) are computed entirely on-device using deterministic, client-side algorithms.</p>
+            <p><strong>No Third-Party AI Services:</strong> Your financial records, transaction histories, and category distributions are never sent to external AI APIs, cloud LLMs, or remote analytics platforms.</p>
 
             <h2>3. Data Retention, Export & Deletion Rights</h2>
             <ul>

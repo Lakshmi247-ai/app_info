@@ -148,15 +148,46 @@ Numbers on a spreadsheet can make anyone's eyes glaze over. MySpends turns your 
 
 ---
 
+### 8. 🩺 Financial Health Score: Your 0–100 Money Fitness Metric
+Ever wondered where you truly stand financially, without drowning in complex formulas? MySpends computes an interactive **Financial Health Score (0–100)** right on your device:
+- **The 4 Key Pillars of Financial Fitness:**
+  1. **Budget Discipline (30%):** How well you respect your monthly spending guardrails.
+  2. **Savings & Net Cash Flow (30%):** The ratio of income retained vs spent each cycle.
+  3. **Recurring Bill Reliability (25%):** Whether your subscriptions and utility obligations are tracked, paid on time, or neglected.
+  4. **Spend Stability (15%):** How steady your daily outlays are, penalizing erratic spikes or panic spending.
+- **Actionable Health Levels:** Instant classification (*Excellent*, *Good*, *Fair*, *Needs Attention*) paired with personalized, plain-English advice to level up your financial wellbeing.
+
+---
+
+### 9. 💡 Smart Spending Insights: Real Observations, Zero Fluff
+Beyond charts, MySpends acts as your personal financial analyst—**100% on-device with zero cloud telemetry**:
+- **Month-over-Month Category Shifts:** Instantly discover if you're spending 35% more on food delivery this month compared to your 3-month average.
+- **Discretionary vs Essential Breakdown:** See what portion of your money went to non-negotiable living needs (rent, bills, groceries) versus lifestyle wants (dining, shopping, entertainment).
+- **Spike & Outlier Detection:** Highlights unusual transactions or sudden merchant frequency jumps so you can plug leaks before they compound.
+
+---
+
+### 10. ⏰ Intelligent Reminders & Recurring Bill Manager
+Never miss a credit card due date, broadband renewal, rent payment, or streaming subscription again:
+- **Smart SMS Auto-Detection:** MySpends scans incoming bank alerts to detect recurring bill patterns (like electricity, Netflix, Wi-Fi, and EMIs) and proactively suggests reminders with pre-filled amounts and due dates.
+- **One-Tap Setup from Any Transaction:** Viewing an expense in Transaction Details? Tap *"Set Recurring Reminder"* to instantly schedule next month's alert.
+- **Custom Lead-Time Alerts:** Choose when you want to be notified (Same day, 1 day, 3 days, or 5 days before) at 9:00 AM, complete with the signature MySpends chime.
+- **Auto-Match with Incoming SMS:** When you pay a bill, MySpends recognizes the debit SMS, automatically marks that cycle as **PAID**, cancels redundant alarms, and rolls forward to the next cycle.
+- **Flexible Management:** Supports *One-Time*, *Weekly*, *Monthly*, *Quarterly*, and *Yearly* schedules. Mistakenly marked a bill as paid? Easily unmark or edit occurrences at any time.
+
+---
+
 ## ☀️ A Day in the Life with MySpends
 
 | Time | Everyday Situation | How MySpends Helps You |
 | :--- | :--- | :--- |
-| **8:30 AM** | You buy breakfast and a coffee using UPI. | A bank SMS arrives. MySpends automatically adds ₹180 to *Food & Dining*. You do nothing. |
+| **8:30 AM** | You buy breakfast and a coffee using UPI. | A bank SMS arrives. MySpends automatically logs ₹180 to *Food & Dining*. You do nothing. |
+| **9:00 AM** | A gentle chime rings on your phone. | MySpends reminds you: *"Airtel Wi-Fi bill (₹999) is due tomorrow"*. |
+| **9:05 AM** | You tap the notification and pay the bill via UPI. | The debit SMS arrives. MySpends detects it, **auto-marks the bill as PAID**, and advances the reminder to next month. No duplicate alarm will ring tomorrow. |
 | **1:15 PM** | You split a ₹3,200 team lunch with 3 colleagues. | You pay via card; your 3 colleagues send you ₹800 each via UPI. MySpends logs the expense and records the incoming transfers as credits. |
 | **2:15 PM** | Your monthly salary is credited into your primary account. | MySpends reads the credit alert and updates your *Income* dashboard, recalculating your net savings immediately. |
 | **6:30 PM** | You are tempted by an impulse online shopping sale. | You open MySpends. The dashboard bar shows you have only ₹1,200 remaining in this month's shopping budget. You decide to hold off, feeling proud of your discipline. |
-| **10:30 PM** | You review your day in bed. | You glance at the 10-second summary across all 4 bank accounts and go to sleep with zero money anxiety. |
+| **10:30 PM** | You review your day in bed. | You glance at your **Financial Health Score (84 • Good)** and the 10-second multi-bank summary, going to sleep with total peace of mind. |
 
 ---
 
@@ -245,6 +276,24 @@ You can turn on **Biometric Lock** (Fingerprint or Face Unlock) in the app setti
 Because MySpends does not store your records in the cloud, you remain the sole owner of your data. You can tap **Export** in the app at any time to generate a clean **CSV or Excel file**. You can email it to yourself, save it to Google Drive.
 
 > **Note on Personal Evaluation:** MySpends is designed strictly for **personal financial evaluation**, spending habit awareness, and self-directed budgeting. It empowers you to understand your own daily cash flow, but is not an official banking portal or chartered accounting tool.
+
+---
+
+#### **12. How does the Financial Health Score work and how can I boost it?**
+Your Financial Health Score is a transparent 0 to 100 benchmark calculated locally on your phone using four pillars:
+1. **Budget Discipline:** Keeping monthly expenses safely below your defined budget limits.
+2. **Savings Ratio:** Ensuring a healthy portion of monthly income remains unspent.
+3. **Bill Discipline:** Staying ahead of recurring bills and avoiding overdue obligations.
+4. **Spend Stability:** Maintaining steady spending rhythms without sudden erratic spikes.
+
+You can boost your score by setting realistic category budgets, logging all major obligations under Reminders, and pacing lifestyle spends across the month.
+
+---
+
+#### **13. How do Bill Reminders and the Auto-Match feature work?**
+When you create a reminder (or let MySpends detect recurring subscriptions from your SMS), the app schedules a gentle reminder at **9:00 AM** on or before your chosen due date.
+- **Auto-Match Intelligence:** When you make the payment, your bank sends a debit SMS. MySpends detects that the merchant and amount match an active reminder, **automatically marks the current cycle as PAID**, and cancels the upcoming notification.
+- **Accidental Mark as Paid?** You can easily tap the reminder in the app to edit details or toggle it back to unpaid whenever needed.
 
 ---
 
